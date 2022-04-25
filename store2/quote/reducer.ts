@@ -1,13 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { getKanyeQuote } from "./actions";
 
-export type KanyeState = {
+export interface KanyeState {
   data: { quote: string };
   pending: boolean;
   error: boolean;
-};
+}
 
-const initialState: KanyeState = {
+export const initialState: KanyeState = {
   data: { quote: "click that button" },
   pending: false,
   error: false,
