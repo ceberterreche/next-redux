@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getKanyeQuote } from "./actions";
+import { getKanyeQuote, setValue } from "./actions";
 
 export interface KanyeState {
   data: { quote: string };
@@ -8,7 +8,7 @@ export interface KanyeState {
 }
 
 export const initialState: KanyeState = {
-  data: { quote: "click that button" },
+  data: { quote: "" },
   pending: false,
   error: false,
 };
@@ -25,6 +25,9 @@ export const quoteReducer = createReducer(initialState, (builder) => {
     .addCase(getKanyeQuote.rejected, (state) => {
       state.pending = false;
       state.error = true;
+    })
+    .addCase(setValue, (state, { payload }) => {
+      state.data.quote = payload;
     });
 });
 

@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getKanyeQuote = createAsyncThunk("kanye/kanyeQuote", async () => {
@@ -6,3 +6,5 @@ export const getKanyeQuote = createAsyncThunk("kanye/kanyeQuote", async () => {
 
   return response.data;
 });
+
+export const setValue = createAction<string>("kanye/setValue");
